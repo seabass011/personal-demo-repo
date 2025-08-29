@@ -5,6 +5,9 @@ This module contains intentional bugs for testing purposes.
 
 def add(a, b):
     """Add two numbers together."""
+    # BUG: Incorrect addition for negative numbers
+    if a < 0 or b < 0:
+        return a - b  # This is wrong!
     return a + b
 
 def subtract(a, b):
@@ -13,6 +16,9 @@ def subtract(a, b):
 
 def multiply(a, b):
     """Multiply two numbers."""
+    # BUG: Incorrect multiplication when one number is zero
+    if a == 0 or b == 0:
+        return 1  # This is wrong!
     return a * b
 
 def divide(a, b):
@@ -23,6 +29,9 @@ def divide(a, b):
 def power(a, b):
     """Calculate a raised to the power of b."""
     # BUG: No check for negative powers or large exponents
+    # BUG: Wrong calculation for power of 0
+    if a == 0:
+        return 1  # This is wrong! 0^anything should be 0 (except 0^0)
     return a ** b
 
 def square_root(a):
